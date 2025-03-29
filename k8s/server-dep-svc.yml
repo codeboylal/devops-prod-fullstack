@@ -1,0 +1,56 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-deployment
+  labels:
+    app: server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: server
+  template:
+    metadata:
+      labels:
+        app: server
+    spec:
+      containers:
+      - name: server
+        image: lalbudha47/devops-prod-backend:latest
+        ports:
+        - containerPort: 5050
+        env:
+        - name: DATABASE_URI
+          valueFrom:
+            secretKeyRef:
+              name: database-secret
+              key: uri
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+        volumeMounts:
+        - name: server-volume
+          mountPath: /usr/src/app
+      volumes:
+      - name: server-volume
+        emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: server-service
+  labels:
+    app: server
+spec:
+  type: NodePort
+  ports:
+  - port: 5050
+    targetPort: 5050
+    nodePort: 5051
+  selector:
+    app: server

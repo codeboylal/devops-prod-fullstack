@@ -1,11 +1,10 @@
-version: "3"
 
 services:
   frontend:
     build: ./client
     container_name: react-ui
     ports:
-      - "3000:3000"
+      - "3030:3000"
     volumes:
       - ./client:/usr/src/app
     stdin_open: true
@@ -26,7 +25,7 @@ services:
     depends_on:
       - database
     environment:
-      - DATABASE_URI=mongodb://mongo-db:27017/
+      - DATABASE_URI=${DATABASE_URI}
     networks:
       - mern-networks
 
