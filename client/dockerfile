@@ -20,3 +20,4 @@ EXPOSE 3000
 CMD ["npm", "start"]
 # Add metadata for the image
 LABEL maintainer="anujmainali2000@gmail.com"
+
