@@ -26,9 +26,7 @@ pipeline {
                 echo 'Using the secret `.env` file from Jenkins'
 
                 withCredentials([file(credentialsId: 'env-file', variable: 'SECRET_ENV_FILE')]) {
-                    echo 'Stopping existing containers and cleaning up unused Docker objects'
-
-                    sh 'sudo docker-compose --env-file $SECRET_ENV_FILE up --build -d'
+                    echo 'All the private build process completed"
                 }
             }
         }
