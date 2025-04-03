@@ -28,7 +28,7 @@ pipeline {
                 withCredentials([file(credentialsId: 'env-file', variable: 'SECRET_ENV_FILE')]) {
                     echo 'Stopping existing containers and cleaning up unused Docker objects'
 
-                    sh 'docker-compose --env-file $SECRET_ENV_FILE up --build -d'
+                    sh 'sudo docker-compose --env-file $SECRET_ENV_FILE up --build -d'
                 }
             }
         }
