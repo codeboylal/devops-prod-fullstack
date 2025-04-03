@@ -24,9 +24,6 @@ pipeline {
         stage('Build and Deploy') {
             steps {
                 echo 'Using the secret `.env` file from Jenkins'
-
-                withCredentials([file(credentialsId: 'env-file', variable: 'SECRET_ENV_FILE')]) {
-                    echo 'All the private build process completed"
                 }
             }
         }
