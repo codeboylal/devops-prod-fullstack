@@ -24,7 +24,7 @@ pipeline {
         stage('Build and Deploy') {
             steps {
                 echo 'Using the secret `.env` file from Jenkins'
-                }
+                sh 'docker-compose up --build -d'
             }
         }
     }
