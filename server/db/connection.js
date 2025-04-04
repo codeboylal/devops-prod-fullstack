@@ -1,6 +1,6 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
 
-const uri = process.env.DATABASE_URI || "mongodb://98.80.224.84:27017/"; // Corrected to mongodb URI scheme
+const uri = process.env.DATABASE_URI || "mongodb://18.215.146.73:27017/"; // Corrected to mongodb URI scheme
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
