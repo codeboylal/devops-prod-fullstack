@@ -6,7 +6,7 @@ pipeline {
     environment {
         REPO_URL = 'https://github.com/codeboylal/devops-prod-fullstack.git'
         BRANCH_NAME = 'devops'
-        CREDENTIALS_ID = 'git-jenkins-token'
+        CREDENTIALS_ID = 'git-jenkins-token-devops-batch'
         DOCKER_COMPOSE_FILE = 'docker-compose.yml'
     }
 
