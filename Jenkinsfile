@@ -10,10 +10,6 @@ pipeline {
         DOCKER_COMPOSE_FILE = 'docker-compose.yml'
     }
 
-    tools {
-        trivy 'trivy '
-    }
-
     stages {
         stage('Code Fetch') {
             steps {
